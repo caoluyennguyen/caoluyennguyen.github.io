@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+*{
+    font-family: "Montserrat", sans-serif;
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    outline: none; border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: all .2s linear;
+}
+
+$green:#44bb6a;
+$black:#263238;
+$white:#fff;
+$light-color:#777;
+$yellow:#ff0;
+$light-bg:#f6f6f6;
+$border:.1rem solid #999;
+
+@mixin grid($val) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax($val, 1fr));
+    gap:2rem;
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+
+    &::-webkit-scrollbar{
+        width: 1rem;
+    }
+
+    &::-webkit-scrollbar-track{
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb{
+        background: $green;
+    }
+}
+
+body{
+    padding-left: 30rem;
+}
+
+section{
+    padding: 3rem 5%;
+
+    &:nth-child(even){
+        background: $light-bg;
+    }
+}
+
+.home .content .btn{
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 1.2rem 3rem;
+    cursor: pointer;
+    color: $white;
+    background: $black;
+    font-size: 1.7rem;
+    forced-color-adjust: none;
+
+    &:hover{
+        background: $green;
+    }
+}
+
+.header{
+    position: fixed;
+    top: 0; left: 0;
+    z-index: 1000;
+    background: $green;
+    width: 30rem;
+    height: 100%;
+    padding: 3rem;
+
+    .logo{
+        font-size: 2.5rem;
+        color:$white;
+
+        i{
+            color: $yellow;
+        }
+    }
+
+    .navbar{
+        padding: 20% 0;
+
+        a{
+            display: block;
+            font-size: 2rem;
+            margin: 1.5rem 0;
+            color: $white;
+            
+            i{
+                color: $yellow;
+                padding-right: .5rem;
+            }
+
+            &:hover{
+                color: $yellow;
+
+                i{
+                    padding-right: 2rem;
+                }
+            }
+        }
+    }
+
+    .share{
+        text-align: center;
+
+        a{
+            height: 4.5rem;
+            width: 4.5rem;
+            line-height: 4.5rem;
+            font-size: 2rem;
+            background: $white;
+            color: $black;
+            margin: 0.1rem;
+
+            &:hover{
+                color: $white;
+                background: $black;
+            }
+        }
+    }
+
+    .credit{
+        text-align: center;
+        color: $white;
+        font-size: 1.5rem;
+        padding-top: 10%;
+
+        span{
+            color: $yellow;
+        }
+    }
+}
+
+#menu-btn{
+    position: fixed;
+    top: 1rem;
+    right: 2rem;
+    height: 5rem;
+    width: 5rem;
+    line-height: 5rem;
+    font-size: 2.5rem;
+    background: $green;
+    color: $white;
+    cursor: pointer;
+    text-align: center;
+    z-index: 10000;
+    display: none;
+
+    &.fa-times{
+        background: $white;
+        color: $black;
+    }
+}
+
+.home{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+
+    .image{
+        flex:1 1 20rem;
+
+        img{
+            width: 100%;
+        }
+    }
+
+    .content{
+        width: 45rem;
+
+        span{
+            color: $green;
+            font-size: 2rem;
+        }
+
+        h3{
+            color: $black;
+            font-size: 3rem;
+            padding: 2rem 0;
+        }
+
+        a{
+            color: $green; //TODO: need to check
+
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+
+    p{
+        font-size: 1.4rem;
+        color: $light-color;
+        padding-bottom: 1rem;
+        line-height: 2;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width:1200px){
+    html{
+        font-size: 55%;
+    }
+}
+
+@media (max-width:991px){
+
+    body{
+        padding-left: 0rem;
+    }
+
+    #menu-btn{
+        display: block;
+    }
+
+    .header{
+        left: -110%;
+
+        &.active{
+            left: 0;
+            box-shadow: 0 0 0 100vw rgba(0,0,0,.7);
+            width: 35rem;
+        }
+    }
+
+    .home .content h3{
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width:450px){
+    html{
+        font-size: 50%;
+    }
+}
